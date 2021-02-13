@@ -1,4 +1,5 @@
-﻿using Entities.Abstract;
+﻿
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,11 @@ namespace Entities.Concrete
         public string ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id,-10}{BrandId,-10}{ColorId,-10}{ModelYear,-10}{DailyPrice,-10}{Description,-10}";
+        }
 
     }
 }

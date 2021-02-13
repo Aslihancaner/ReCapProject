@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
@@ -9,18 +10,17 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new InMemoryCarDal());
-            foreach (var item in carManager.GetAll())
-            {
-                Console.WriteLine(item.Id +" "+ item.BrandId+" "+item.Description);
-            }
-            Console.WriteLine("----------------------");
-            Car car = new Car { Id = 7,BrandId=8,Description="Dizel Otomatik" };
-            carManager.Add(car);
-            foreach (var item in carManager.GetAll())
-            {
-                Console.WriteLine(item.Id + " " + item.BrandId+" "+item.Description);
-            }
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.GetAll().ForEach(c => Console.WriteLine(c));
+            //carManager.GetCarDetails().ForEach(g => Console.WriteLine(g));
+           
+            //BrandManager brandManager = new BrandManager(new EfBrandDal());
+            //brandManager.GetAll().ForEach(b => Console.WriteLine(b));
+           
+            //ColorManager colorManager = new ColorManager(new EfColorDal());                  
+            //colorManager.GetAll().ForEach(c => Console.WriteLine(c));
+
+            
         }
     }
 }
