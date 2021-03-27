@@ -19,6 +19,7 @@ namespace Core.DataAccess.EntityFramework
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
+                //context.SaveChangesAsync();
                 context.SaveChanges();
             }
         }
@@ -30,6 +31,7 @@ namespace Core.DataAccess.EntityFramework
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
+                //savechangeasync
             }
         }
 

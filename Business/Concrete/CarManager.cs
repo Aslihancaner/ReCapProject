@@ -41,8 +41,8 @@ namespace Business.Concrete
    
         public IDataResult< List<Car>> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            _icarDal.GetAll();
-            return new SuccessDataResult<List<Car>>(Messages.CarsListed);
+            
+            return new SuccessDataResult<List<Car>>(_icarDal.GetAll(),Messages.CarsListed);
         }
 
         public IDataResult< List<Car>> GetByCarId(int id)

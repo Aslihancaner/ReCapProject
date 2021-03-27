@@ -8,12 +8,12 @@ namespace Entities.DTOs
     public class CarDetailsDto:IDto
     {
         public int Id { get; set; }
-        public int BrandId { get; set; }
-        public string Description { get; set; }
+        public string BrandName { get; set; }
+        public string ColorName { get; set; }
         public decimal DailyPrice { get; set; }
         public override string ToString()
         {
-            return $"{BrandId,-10}{Description,-10}{DailyPrice,-10}";
+            return $"{BrandName,-10}{ColorName,-10}{DailyPrice,-10}";
         }
     }
 }
